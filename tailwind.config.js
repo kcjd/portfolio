@@ -4,7 +4,11 @@ module.exports = {
     fontFamily: {
       sans: ['Inter', 'sans-serif']
     },
-    extend: {}
+    extend: {
+      backgroundImage: {
+        'mesh-gradient': "url('/mesh-gradient.webp')"
+      }
+    }
   },
   plugins: []
 }
