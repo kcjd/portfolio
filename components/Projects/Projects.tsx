@@ -8,7 +8,7 @@ type Props = {
   projects: Project[]
 }
 
-const ProjectList = ({ projects }: Props) => {
+const Projects = ({ projects }: Props) => {
   const [isCursorVisible, toggleCursorVisible] = useToggle()
 
   return (
@@ -30,4 +30,4 @@ const ProjectList = ({ projects }: Props) => {
   )
 }
 
-export default ProjectList
+export default Projects

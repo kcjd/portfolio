@@ -1,8 +1,9 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { gsap } from 'gsap'
 import Container from '../Container'
-import Link from 'next/link'
+import SocialLinks from '../SocialLinks'
 import useHover from '../../hooks/useHover'
 
 const Hero = () => {
@@ -57,11 +58,11 @@ const Hero = () => {
   return (
     <section ref={container} className="bg-blue-50">
       <Container>
-        <div className="flex flex-col lg:flex-row justify-center lg:justify-start lg:items-center gap-12 lg:gap-40 lg:min-h-screen py-48">
-          <div ref={heading}>
+        <div className="flex flex-col lg:flex-row justify-center lg:justify-between lg:items-center gap-12 lg:gap-0 lg:min-h-screen py-48">
+          <div ref={heading} className="md:max-w-[75%]">
             <p className="mb-4 text-gray-600 text-xl">Kévin Colonjard</p>
 
-            <h1 className="max-w-5xl text-6xl lg:text-9xl font-bold leading-tight lg:leading-none">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight lg:leading-none">
               Développeur <span className="underline underline-offset-2 decoration-emerald-200">Frontend</span> à Lyon
             </h1>
           </div>

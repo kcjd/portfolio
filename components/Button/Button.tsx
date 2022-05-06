@@ -3,11 +3,13 @@ import { ComponentPropsWithoutRef, ElementType } from 'react'
 type Props<T extends ElementType> = {
   as?: T
   variant?: 'primary' | 'secondary'
+  icon?: string
 }
 
 const Button = <T extends ElementType = 'button'>({
   as,
   variant = 'primary',
+  icon,
   children,
   ...props
 }: Props<T> & ComponentPropsWithoutRef<T>) => {
@@ -21,6 +23,8 @@ const Button = <T extends ElementType = 'button'>({
       {...props}
     >
       {children}
+
+      {icon && <span className="material-symbols-sharp ml-4 text-lg">{icon}</span>}
     </Component>
   )
 }

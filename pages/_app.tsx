@@ -4,6 +4,8 @@ import Header from '../components/Header'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import '../styles/globals.css'
+import ScrollTop from '../components/ScrollTop'
+import Footer from '../components/Footer'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -19,6 +21,10 @@ const App = ({ Component, pageProps }: AppProps) => {
       <main>
         <Component {...pageProps} />
       </main>
+
+      <Footer />
+
+      <ScrollTop />
     </>
   )
 }

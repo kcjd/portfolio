@@ -7,30 +7,30 @@ const About = () => {
   return (
     <section className="py-24" id="about">
       <Container>
-        <h2 className="mb-24 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-orange-200">
-          À Propos
-        </h2>
+        <div className="mb-24">
+          <h2 className="mb-24 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-emerald-200">
+            À Propos
+          </h2>
 
-        <div className="md:flex flex-row-reverse justify-between items-center mb-12">
-          <div className="w-48 h-48 mb-12 md:mb-0">
-            <Image className="rounded-full" src="/me.webp" width={1440} height={1440} layout="responsive" alt="" />
-          </div>
+          <div className="flex flex-col md:flex md:flex-row-reverse justify-between md:items-center gap-12 mb-12">
+            <div className="flex-none w-48 h-48 md:mb-0">
+              <Image className="rounded-full" src="/me.webp" width={1440} height={1440} layout="responsive" alt="" />
+            </div>
 
-          <div className="max-w-2xl">
-            <p className="text-2xl leading-normal">
-              Je suis un développeur web créatif et sensible à l’UI / UX grâce à mon expérience de 4 ans dans le domaine
-              du design. Curieux et passionné, je cherche toujours à m’améliorer et acquérir de nouvelles connaissances.
+            <p className="max-w-3xl text-xl leading-normal">
+              Hello ! ✌️ <br /> Je suis un développeur web créatif avec 4 ans d’expérience dans le domaine du design.
+              Curieux et passionné, j’aime sortir de ma zone de confort et apprendre de nouvelles technologies.
             </p>
           </div>
+
+          <Link href="/" passHref>
+            <Button icon="north_east">Voir mon CV</Button>
+          </Link>
         </div>
 
-        <Link href="/" passHref>
-          <Button>Voir mon CV</Button>
-        </Link>
+        <h3 className="mb-8 text-2xl font-bold">Mes compétences</h3>
 
-        <h3 className="mt-24 text-2xl font-bold">Mes compétences</h3>
-
-        <ul className="grid md:grid-cols-2 gap-x-24 text-xl">
+        <ul className="grid md:grid-cols-2 gap-x-16 max-w-3xl text-lg">
           <li className="py-6 border-b">HTML</li>
           <li className="py-6 border-b">CSS</li>
           <li className="py-6 border-b">JavaScript</li>
