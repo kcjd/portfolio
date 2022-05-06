@@ -1,18 +1,27 @@
-import { PropsWithChildren } from 'react'
+import { ComponentPropsWithoutRef, ElementType } from 'react'
 
-type Props = {
+type Props<T extends ElementType> = {
+  as?: T
   variant?: 'primary' | 'secondary'
 }
 
-const Button = ({ variant = 'primary', children }: PropsWithChildren<Props>) => {
+const Button = <T extends ElementType = 'button'>({
+  as,
+  variant = 'primary',
+  children,
+  ...props
+}: Props<T> & ComponentPropsWithoutRef<T>) => {
+  const Component = as || 'button'
+
   return (
-    <a
-      className={`inline-flex items-center h-16 px-8 rounded-md font-semibold uppercase tracking-wide cursor-pointer ${
+    <Component
+      className={`inline-flex items-center h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer ${
         variant === 'primary' ? 'bg-gray-900 text-white' : ''
       } ${variant === 'secondary' ? 'border-2 border-current' : ''}`}
+      {...props}
     >
       {children}
-    </a>
+    </Component>
   )
 }
 

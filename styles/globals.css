@@ -1,9 +1,14 @@
 @tailwind base;
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
   body {
     @apply text-gray-900;
     @apply font-medium;
+    @apply overflow-x-hidden;
   }
 }
 

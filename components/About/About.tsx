@@ -7,7 +7,9 @@ const About = () => {
   return (
     <section className="py-24" id="about">
       <Container>
-        <h2 className="mb-24 py-4 border-t-2 border-current text-3xl font-semibold">À Propos</h2>
+        <h2 className="mb-24 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-orange-200">
+          À Propos
+        </h2>
 
         <div className="md:flex flex-row-reverse justify-between items-center mb-12">
           <div className="w-48 h-48 mb-12 md:mb-0">
@@ -26,7 +28,7 @@ const About = () => {
           <Button>Voir mon CV</Button>
         </Link>
 
-        <h3 className="mt-24 text-2xl font-semibold">Mes compétences</h3>
+        <h3 className="mt-24 text-2xl font-bold">Mes compétences</h3>
 
         <ul className="grid md:grid-cols-2 gap-x-24 text-xl">
           <li className="py-6 border-b">HTML</li>
