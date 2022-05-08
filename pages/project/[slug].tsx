@@ -31,7 +31,7 @@ const Project: NextPage<Props> = ({ project }) => {
             <p className="text-2xl text-gray-500">{project.subtitle}</p>
           </div>
 
-          <p className="max-w-prose mb-12 text-xl leading-normal text-gray-500">{project.body}</p>
+          <p className="max-w-3xl mb-12 text-xl leading-normal">{project.body}</p>
 
           <div className="flex gap-4">
             <Button as="a" href={project.link} target="_blank" rel="noreferrer" icon="north_east">

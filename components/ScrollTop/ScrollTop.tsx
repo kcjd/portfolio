@@ -1,48 +1,59 @@
-import { useEffect, useRef, useState } from 'react'
-import { gsap } from 'gsap'
+import { useEffect, useState } from 'react'
+import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { spring } from '../../lib/animations'
+
+const scrollTop: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: spring
+  },
+  hidden: {
+    opacity: 0,
+    y: 64,
+    scale: 0
+  },
+  hover: {
+    scale: 1.1
+  },
+  tap: {
+    y: 16,
+    scale: 0.95
+  }
+}
 
 const ScrollTop = () => {
-  const [isVisible, setVisible] = useState(false)
-  const scrollTop = useRef(null)
+  const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > window.innerHeight) {
-        setVisible(true)
-      } else {
-        setVisible(false)
-      }
-    }
-
+    const handleScroll = () => setIsVisible(window.scrollY > window.innerHeight)
     handleScroll()
-
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  useEffect(() => {
-    gsap.to(scrollTop.current, {
-      y: isVisible ? 0 : 64,
-      scale: isVisible ? 1 : 0,
-      duration: 0.4,
-      ease: 'power3.out'
-    })
-  }, [isVisible])
-
-  const handleClick = () => {
-    window.scrollTo({ top: 0 })
-  }
+  const handleClick = () => window.scrollTo({ top: 0 })
 
   return (
-    <button
-      ref={scrollTop}
-      className="fixed right-8 bottom-8 flex justify-center items-center w-14 h-14 rounded-full bg-gray-900"
-      onClick={handleClick}
-      aria-label="Retour en haut de page"
-    >
-      <span className="material-symbols-sharp text-white text-lg">north</span>
-    </button>
+    <AnimatePresence>
+      {isVisible && (
+        <motion.button
+          variants={scrollTop}
+          initial="hidden"
+          animate="visible"
+          exit="hidden"
+          whileHover="hover"
+          whileTap="tap"
+          className="fixed right-4 bottom-4 flex justify-center items-center w-14 h-14 rounded-full bg-gray-900"
+          onClick={handleClick}
+          aria-label="Retour en haut de page"
+        >
+          <span className="material-symbols-sharp text-white text-lg">north</span>
+        </motion.button>
+      )}
+    </AnimatePresence>
   )
 }
 

@@ -1,13 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import Header from '../components/Header'
-import { gsap } from 'gsap'
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
+import Layout from '../components/Layout'
 import '../styles/globals.css'
-import ScrollTop from '../components/ScrollTop'
-import Footer from '../components/Footer'
-
-gsap.registerPlugin(ScrollTrigger)
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -16,15 +10,9 @@ const App = ({ Component, pageProps }: AppProps) => {
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
 
-      <Header />
-
-      <main>
+      <Layout>
         <Component {...pageProps} />
-      </main>
-
-      <Footer />
-
-      <ScrollTop />
+      </Layout>
     </>
   )
 }

@@ -1,61 +1,51 @@
 import { Project } from '@prisma/client'
-import { useEffect, useRef } from 'react'
+import { useEffect, useState } from 'react'
+import { motion, Variants } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { gsap } from 'gsap'
-import useHover from '../../hooks/useHover'
+import { spring } from '../../lib/animations'
 
 type Props = {
   project: Project
   toggleCursor: () => void
 }
 
+const wrapper: Variants = {
+  hover: {
+    scale: 0.95,
+    transition: spring
+  }
+}
+
+const image: Variants = {
+  hover: {
+    scale: 1.1,
+    transition: spring
+  }
+}
+
 const ProjectCard = ({ project, toggleCursor }: Props) => {
-  const containerRef = useRef(null)
-  const thumbnailWrapperRef = useRef(null)
-  const thumbnailRef = useRef(null)
-
-  const isHover = useHover(thumbnailWrapperRef)
-
-  useEffect(() => {
-    gsap.from(containerRef.current, {
-      scrollTrigger: {
-        trigger: containerRef.current,
-        end: 'top 25%',
-        toggleActions: 'restart none none reverse'
-      },
-      y: 200,
-      scale: 0.9
-    })
-  }, [])
-
-  useEffect(() => {
-    gsap.to(thumbnailWrapperRef.current, {
-      scale: isHover ? 0.95 : 1,
-      duration: 0.3,
-      ease: 'sine.inOut'
-    })
-
-    gsap.to(thumbnailRef.current, {
-      scale: isHover ? 1.1 : 1,
-      duration: 0.3,
-      ease: 'sine.inOut'
-    })
-  }, [isHover])
+  const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
     toggleCursor()
-  }, [isHover, toggleCursor])
+  }, [isHovered, toggleCursor])
 
   return (
     <article className="relative md:odd:translate-y-32">
-      <Link href={`/project/${project.slug}`}>
-        <a ref={containerRef} className="block">
-          <div ref={thumbnailWrapperRef} className={`bg-${project.color} overflow-hidden cursor-none`}>
-            <div ref={thumbnailRef}>
+      <Link href={`/project/${project.slug}`} passHref>
+        <a className="block">
+          <motion.div
+            variants={wrapper}
+            whileHover="hover"
+            className={`bg-${project.color} overflow-hidden cursor-none`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <motion.div variants={image}>
               <Image src={`/${project.thumbnail}`} width={1500} height={1200} layout="responsive" alt="" />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           <div className="mt-8">
             <h3 className="text-2xl font-bold">{project.title}</h3>
