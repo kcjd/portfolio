@@ -4,7 +4,7 @@ import Head from 'next/head'
 import About from '../components/About'
 import Contact from '../components/Contact'
 import Hero from '../components/Hero'
-import Projects from '../components/Projects'
+import ProjectList from '../components/ProjectList'
 import { prisma } from '../lib/prisma'
 
 type Props = {
@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ projects }) => {
 
       <Hero />
 
-      <Projects projects={projects} />
+      <ProjectList projects={projects} />
 
       <About />
 
@@ -39,20 +39,15 @@ export const getStaticProps: GetStaticProps = async () => {
     },
     orderBy: {
       createdAt: 'desc'
-    },
-    select: {
-      id: true,
-      slug: true,
-      title: true,
-      subtitle: true,
-      color: true,
-      thumbnail: true
     }
   })
 
   return {
     props: {
-      projects: projects
+      projects: projects.map((project) => ({
+        ...project,
+        createdAt: project.createdAt.toISOString()
+      }))
     }
   }
 }

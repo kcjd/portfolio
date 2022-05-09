@@ -3,11 +3,9 @@ import { socialLinks } from '../SocialLinks/SocialLinks'
 
 const Contact = () => {
   return (
-    <section className="py-32 bg-orange-50" id="contact">
+    <section className="py-24" id="contact">
       <Container>
-        <h2 className="mb-16 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-orange-200">
-          Contact
-        </h2>
+        <h2 className="mb-16 text-3xl font-bold underline underline-offset-4 decoration-emerald-200">Contact</h2>
 
         <p className="max-w-3xl mb-16 text-xl leading-normal">
           Mon profil vous intéresse, vous avez des questions sur mon travail ? Je suis actuellement à la recherche d’un
@@ -19,7 +17,7 @@ const Contact = () => {
             <h3 className="mb-8 text-lg">Email</h3>
 
             <a
-              className="text-2xl font-bold underline underline-offset-4 decoration-orange-200"
+              className="text-2xl font-bold underline underline-offset-4 decoration-emerald-200"
               href="mailto:kevincj@outlook.fr"
             >
               kevincj@outlook.fr
@@ -33,7 +31,7 @@ const Contact = () => {
               {socialLinks.map(({ href, label }) => (
                 <a
                   key={href}
-                  className="text-2xl font-bold underline underline-offset-4 decoration-orange-200"
+                  className="text-2xl font-bold underline underline-offset-4 decoration-emerald-200"
                   href={href}
                   target="_blank"
                   rel="noreferrer"

@@ -23,8 +23,7 @@ export const skewInTop: Variants = {
 export const zoomIn: Variants = {
   visible: {
     opacity: 1,
-    scale: 1,
-    transition: spring
+    scale: 1
   },
   hidden: {
     opacity: 0,

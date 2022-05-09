@@ -34,25 +34,29 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
   return (
     <article className="relative md:odd:translate-y-32">
       <Link href={`/project/${project.slug}`} passHref>
-        <a className="block">
-          <motion.div
-            variants={wrapper}
-            whileHover="hover"
-            className={`bg-${project.color} overflow-hidden cursor-none`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            <motion.div variants={image}>
-              <Image src={`/${project.thumbnail}`} width={1500} height={1200} layout="responsive" alt="" />
-            </motion.div>
+        <motion.a
+          variants={wrapper}
+          whileHover="hover"
+          className={`block bg-${project.color}-50 overflow-hidden cursor-none`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <motion.div variants={image}>
+            <Image
+              src={`/projects/${project.thumbnail}`}
+              width={1500}
+              height={1200}
+              layout="responsive"
+              alt={project.title}
+            />
           </motion.div>
-
-          <div className="mt-8">
-            <h3 className="text-2xl font-bold">{project.title}</h3>
-            <p className="text-lg text-gray-500">{project.subtitle}</p>
-          </div>
-        </a>
+        </motion.a>
       </Link>
+
+      <div className="mt-8">
+        <h3 className="text-2xl font-bold">{project.title}</h3>
+        <p className="text-lg text-gray-500">{project.subtitle}</p>
+      </div>
     </article>
   )
 }

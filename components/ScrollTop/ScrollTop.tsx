@@ -6,8 +6,7 @@ const scrollTop: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    scale: 1,
-    transition: spring
+    scale: 1
   },
   hidden: {
     opacity: 0,
@@ -19,7 +18,7 @@ const scrollTop: Variants = {
   },
   tap: {
     y: 16,
-    scale: 0.95
+    scale: 0.6
   }
 }
 
@@ -46,6 +45,7 @@ const ScrollTop = () => {
           exit="hidden"
           whileHover="hover"
           whileTap="tap"
+          transition={spring}
           className="fixed right-4 bottom-4 flex justify-center items-center w-14 h-14 rounded-full bg-gray-900"
           onClick={handleClick}
           aria-label="Retour en haut de page"

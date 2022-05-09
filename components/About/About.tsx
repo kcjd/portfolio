@@ -3,15 +3,27 @@ import Link from 'next/link'
 import Button from '../Button'
 import Container from '../Container'
 
-const skills = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'MySQL']
+const skills = [
+  'HTML',
+  'CSS',
+  'Sass',
+  'Tailwind CSS',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Redux',
+  'Node.js',
+  'Express',
+  'Prisma',
+  'MongoDB',
+  'MySQL'
+]
 
 const About = () => {
   return (
     <section className="py-24" id="about">
       <Container>
-        <h2 className="mb-24 text-3xl font-bold underline underline-offset-4 decoration-4 decoration-emerald-200">
-          À Propos
-        </h2>
+        <h2 className="mb-24 text-3xl font-bold underline underline-offset-4 decoration-emerald-200">À Propos</h2>
 
         <div className="mb-24">
           <div className="flex flex-col md:flex md:flex-row-reverse justify-between md:items-center gap-12 mb-12">
@@ -25,17 +37,15 @@ const About = () => {
             </p>
           </div>
 
-          <Link href="/" passHref>
-            <Button icon="north_east">Voir mon CV</Button>
-          </Link>
+          <Button icon="north_east">Voir mon CV</Button>
         </div>
 
-        <h3 className="mb-8 text-2xl font-bold">Mes compétences</h3>
+        <h2 className="mb-4 text-xl font-bold">Mes compétences</h2>
 
-        <ul className="grid md:grid-cols-2 gap-x-16 text-lg">
+        <ul className="flex flex-wrap gap-2 max-w-xl mb-20">
           {skills.map((skill) => (
-            <li key={skill}>
-              <div className="py-6 border-b">{skill}</div>
+            <li key={skill} className={`py-1 px-4 rounded-full border-2 border-emerald-200`}>
+              {skill}
             </li>
           ))}
         </ul>
