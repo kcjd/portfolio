@@ -1,7 +1,6 @@
 /* eslint-disable react/display-name */
-import { motion } from 'framer-motion'
-import { ComponentPropsWithoutRef, ElementType, forwardRef, useState } from 'react'
-import { spring } from '../../lib/animations'
+import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react'
+import clsx from 'clsx'
 
 type Props<T extends ElementType> = {
   as?: T
@@ -16,33 +15,22 @@ const Button = forwardRef(
   ) => {
     const Component = as || 'button'
 
-    const [isHovered, setIsHovered] = useState(false)
-
     return (
       <Component
         ref={ref}
-        className={`inline-flex items-center h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer transition-colors ${
-          variant === 'primary' ? 'bg-gray-900 hover:bg-gray-800 text-white' : ''
-        } ${variant === 'secondary' ? 'border-2 border-current' : ''}`}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
+        className={clsx(
+          'inline-flex items-center h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer transition-colors',
+          variant === 'primary' && 'bg-gray-900 text-white',
+          variant === 'secondary' && 'border-2 border-current text-gray-900'
+        )}
         {...props}
       >
-        <motion.span
-          animate={isHovered ? { opacity: [1, 0, 0, 1], y: [0, -16, 16, 0] } : ''}
-          transition={{ duration: 0.4 }}
-        >
-          {children}
-        </motion.span>
+        {children}
 
         {icon && (
-          <motion.span
-            animate={isHovered ? { x: 4, y: -4 } : ''}
-            transition={spring}
-            className="material-symbols-sharp ml-4 text-lg"
-          >
+          <span className="material-symbols-sharp ml-4 text-lg" aria-hidden>
             {icon}
-          </motion.span>
+          </span>
         )}
       </Component>
     )

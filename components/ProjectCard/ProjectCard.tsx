@@ -1,27 +1,13 @@
 import { Project } from '@prisma/client'
 import { useEffect, useState } from 'react'
-import { motion, Variants } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { spring } from '../../lib/animations'
+import { skewReveal, spring, spring2 } from '../../lib/animations'
 
 type Props = {
   project: Project
   toggleCursor: () => void
-}
-
-const wrapper: Variants = {
-  hover: {
-    scale: 0.95,
-    transition: spring
-  }
-}
-
-const image: Variants = {
-  hover: {
-    scale: 1.1,
-    transition: spring
-  }
 }
 
 const ProjectCard = ({ project, toggleCursor }: Props) => {
@@ -33,30 +19,32 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
 
   return (
     <article className="relative md:odd:translate-y-32">
-      <Link href={`/project/${project.slug}`} passHref>
-        <motion.a
-          variants={wrapper}
-          whileHover="hover"
-          className={`block bg-${project.color}-50 overflow-hidden cursor-none`}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-        >
-          <motion.div variants={image}>
-            <Image
-              src={`/projects/${project.thumbnail}`}
-              width={1500}
-              height={1200}
-              layout="responsive"
-              alt={project.title}
-            />
-          </motion.div>
-        </motion.a>
-      </Link>
+      <motion.div variants={skewReveal} initial="hidden" whileInView="visible" transition={spring2}>
+        <Link href={`/project/${project.slug}`} scroll={false} passHref>
+          <motion.a
+            whileHover={{ scale: 0.95 }}
+            transition={spring}
+            className={`block bg-${project.color}-50 overflow-hidden cursor-none`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <motion.div whileHover={{ scale: 1.1 }} transition={spring}>
+              <Image
+                src={`/projects/${project.thumbnail}`}
+                width={1500}
+                height={1200}
+                layout="responsive"
+                alt={project.title}
+              />
+            </motion.div>
+          </motion.a>
+        </Link>
 
-      <div className="mt-8">
-        <h3 className="text-2xl font-bold">{project.title}</h3>
-        <p className="text-lg text-gray-500">{project.subtitle}</p>
-      </div>
+        <div className="mt-8">
+          <h3 className="text-2xl font-bold">{project.title}</h3>
+          <p className="text-lg text-gray-500">{project.subtitle}</p>
+        </div>
+      </motion.div>
     </article>
   )
 }

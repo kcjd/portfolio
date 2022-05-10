@@ -1,8 +1,10 @@
 import { Project } from '@prisma/client'
+import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
+import { slideReveal, spring2 } from '../../lib/animations'
 import Button from '../Button'
-import Container from '../Container'
+import Chip from '../Chip'
 
 type Props = {
   project: Project
@@ -11,11 +13,16 @@ type Props = {
 const ProjectView = ({ project }: Props) => {
   return (
     <section className="pt-60 pb-24">
-      <Container>
+      <div className="container">
         <div className="max-w-3xl">
-          <Link href="/#projects">
-            <a className="flex justify-center items-center w-8 h-8 mb-6 rounded-full border border-gray-500 text-gray-500 ">
-              <span className="material-symbols-sharp text-base">west</span>
+          <Link href="/">
+            <a
+              className="flex justify-center items-center w-8 h-8 mb-6 rounded-full border border-gray-500 text-gray-500"
+              aria-label="Retour"
+            >
+              <span className="material-symbols-sharp text-base" aria-hidden>
+                west
+              </span>
             </a>
           </Link>
 
@@ -30,9 +37,7 @@ const ProjectView = ({ project }: Props) => {
 
           <ul className="flex flex-wrap gap-2 mb-20">
             {project.technologies.map((tech) => (
-              <li key={tech} className={`py-1 px-4 rounded-full border-2 border-emerald-200`}>
-                {tech}
-              </li>
+              <Chip key={tech}>{tech}</Chip>
             ))}
           </ul>
 
@@ -46,13 +51,20 @@ const ProjectView = ({ project }: Props) => {
             </Button>
           </div>
         </div>
-      </Container>
+      </div>
 
       <div className="flex flex-col gap-14 max-w-screen-xl mx-auto mt-24 lg:px-4">
         {project.images.map((image) => (
-          <div key={image} className="bg-gray-900">
+          <motion.div
+            key={image}
+            variants={slideReveal}
+            initial="hidden"
+            whileInView="visible"
+            transition={spring2}
+            className="bg-gray-900"
+          >
             <Image src={`/projects/${image}`} width={1500} height={1200} layout="responsive" alt="" />
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

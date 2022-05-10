@@ -1,26 +1,36 @@
 import { Transition, Variants } from 'framer-motion'
 
-export const spring: Transition = {
-  type: 'spring',
-  stiffness: 100,
-  mass: 0.2
-}
+export const spring: Transition = { type: 'spring', stiffness: 100, mass: 0.2 }
+export const spring2: Transition = { type: 'spring', stiffness: 75, mass: 0.2 }
+export const spring3: Transition = { type: 'spring', stiffness: 50, mass: 0.4 }
 
-export const skewInTop: Variants = {
+export const slideReveal: Variants = {
   visible: {
     opacity: 1,
-    skewY: 0,
     y: 0,
-    transition: spring
+    scale: 1
   },
   hidden: {
     opacity: 0,
+    y: 200,
+    scale: 0.9
+  }
+}
+
+export const skewReveal: Variants = {
+  visible: {
+    opacity: 1,
+    y: 0,
+    skewY: 0
+  },
+  hidden: {
     skewY: 5,
+    opacity: 0,
     y: 200
   }
 }
 
-export const zoomIn: Variants = {
+export const zoomReveal: Variants = {
   visible: {
     opacity: 1,
     scale: 1
@@ -28,16 +38,5 @@ export const zoomIn: Variants = {
   hidden: {
     opacity: 0,
     scale: 0
-  }
-}
-
-export const rotate: Variants = {
-  visible: {
-    rotate: 360,
-    transition: {
-      duration: '20',
-      ease: 'linear',
-      repeat: Infinity
-    }
   }
 }
