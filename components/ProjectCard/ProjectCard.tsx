@@ -19,8 +19,14 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
 
   return (
     <article className="relative md:odd:translate-y-32">
-      <motion.div variants={slideReveal} initial="hidden" whileInView="visible" transition={spring2}>
-        <Link href={`/project/${project.slug}`} scroll={false} passHref>
+      <motion.div
+        variants={slideReveal}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={spring2}
+      >
+        <Link href={`/project/${project.slug}`} passHref>
           <a
             className="block cursor-none"
             onMouseEnter={() => setIsHovered(true)}

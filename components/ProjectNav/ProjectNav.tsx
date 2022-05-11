@@ -21,7 +21,7 @@ const ProjectNavLink = ({ project, isPrevious, isNext }: ProjectNavLinkProps) =>
   const [isHovered, setHovered] = useState(false)
 
   return (
-    <Link href={`/project/${project.slug}`} scroll={false} passHref>
+    <Link href={`/project/${project.slug}`} passHref>
       <a
         className={clsx('flex items-center gap-6', isNext && 'flex-row-reverse ml-auto')}
         onMouseEnter={() => setHovered(true)}

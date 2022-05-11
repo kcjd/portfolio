@@ -8,6 +8,7 @@ const Contact = () => {
       variants={skewReveal}
       initial="hidden"
       whileInView="visible"
+      viewport={{ once: true }}
       transition={spring2}
       className="container py-24"
       id="contact"
