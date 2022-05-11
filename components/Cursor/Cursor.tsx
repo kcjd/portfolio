@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, Variants } from 'framer-motion'
+import { CgArrowsExpandRight } from 'react-icons/cg'
 import useMousePosition from '../../hooks/useMousePosition'
 import { spring } from '../../lib/animations'
 
@@ -33,11 +34,9 @@ const Cursor = ({ isVisible }: Props) => {
           animate="visible"
           exit="hidden"
           transition={spring}
-          className="absolute top-0 left-0 z-50 flex justify-center items-center w-20 h-20 rounded-full bg-gray-900 select-none pointer-events-none"
+          className="absolute top-0 left-0 z-50 flex justify-center items-center w-20 h-20 rounded-full bg-gray-900 text-white select-none pointer-events-none"
         >
-          <span className="material-symbols-sharp text-white" aria-hidden>
-            open_in_full
-          </span>
+          <CgArrowsExpandRight size={28} />
         </motion.div>
       )}
     </AnimatePresence>

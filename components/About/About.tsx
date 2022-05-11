@@ -43,7 +43,7 @@ const About = () => {
 
         <div className="mb-16">
           <Link href="/#contact" passHref>
-            <Button as="a">Me contacter</Button>
+            <Button>Me contacter</Button>
           </Link>
         </div>
 

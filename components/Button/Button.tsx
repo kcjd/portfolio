@@ -1,40 +1,32 @@
-/* eslint-disable react/display-name */
-import { ComponentPropsWithoutRef, ElementType, forwardRef } from 'react'
+import { forwardRef, HTMLProps, PropsWithChildren } from 'react'
 import clsx from 'clsx'
+import { IconType } from 'react-icons'
 
-type Props<T extends ElementType> = {
-  as?: T
+type Props = HTMLProps<HTMLAnchorElement> & {
   variant?: 'primary' | 'secondary'
-  icon?: string
+  icon?: IconType
 }
 
-const Button = forwardRef(
-  <T extends ElementType = 'button'>(
-    { as, variant = 'primary', icon, children, ...props }: Props<T> & ComponentPropsWithoutRef<T>,
-    ref?: any
-  ) => {
-    const Component = as || 'button'
-
+const Button = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
+  ({ variant = 'primary', icon: Icon, children, ...props }, ref?: any) => {
     return (
-      <Component
+      <a
         ref={ref}
         className={clsx(
-          'inline-flex items-center h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer',
+          'inline-flex items-center gap-2 h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer',
           variant === 'primary' && 'bg-gray-900 text-white',
-          variant === 'secondary' && 'border-2 border-current text-gray-900'
+          variant === 'secondary' && 'border border-gray-900 text-gray-900'
         )}
         {...props}
       >
         {children}
 
-        {icon && (
-          <span className="material-symbols-sharp ml-4 text-lg" aria-hidden>
-            {icon}
-          </span>
-        )}
-      </Component>
+        {Icon && <Icon size={24} />}
+      </a>
     )
   }
 )
+
+Button.displayName = 'Button'
 
 export default Button

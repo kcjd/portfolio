@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { CgArrowUp } from 'react-icons/cg'
 import { slideReveal, spring } from '../../lib/animations'
 
 const ScrollTop = () => {
@@ -24,13 +25,11 @@ const ScrollTop = () => {
           animate="visible"
           exit="hidden"
           transition={spring}
-          className="fixed right-4 bottom-4 z-50 flex justify-center items-center w-14 h-14 rounded-full bg-gray-900"
+          className="fixed right-4 bottom-4 z-50 flex justify-center items-center w-14 h-14 rounded-full bg-gray-900 text-white"
           onClick={handleClick}
           aria-label="Haut de page"
         >
-          <span className="material-symbols-sharp text-white text-lg" aria-hidden>
-            north
-          </span>
+          <CgArrowUp size={24} />
         </motion.button>
       )}
     </AnimatePresence>

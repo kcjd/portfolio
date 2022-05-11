@@ -1,7 +1,7 @@
 import { Transition, Variants } from 'framer-motion'
 
 export const spring: Transition = { type: 'spring', stiffness: 100, mass: 0.2 }
-export const spring2: Transition = { type: 'spring', stiffness: 75, mass: 0.2 }
+export const spring2: Transition = { type: 'spring', stiffness: 50, mass: 0.2 }
 
 export const slideReveal: Variants = {
   visible: {

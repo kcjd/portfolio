@@ -2,9 +2,10 @@ import { Project } from '@prisma/client'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { skewReveal, slideReveal, spring2 } from '../../lib/animations'
+import { CgArrowLeft, CgArrowTopRight } from 'react-icons/cg'
 import Button from '../Button'
 import Chip from '../Chip'
+import { skewReveal, slideReveal, spring2 } from '../../lib/animations'
 
 type Props = {
   project: Project
@@ -14,6 +15,7 @@ const ProjectView = ({ project }: Props) => {
   return (
     <section className="pt-60 pb-24">
       <motion.div
+        key={project.slug}
         variants={skewReveal}
         initial="hidden"
         whileInView="visible"
@@ -24,12 +26,10 @@ const ProjectView = ({ project }: Props) => {
         <div className="max-w-3xl">
           <Link href="/#projects">
             <a
-              className="flex justify-center items-center w-10 h-10 mb-6 rounded-full border-2 border-gray-200 text-gray-600"
+              className="flex justify-center items-center w-10 h-10 mb-6 rounded-full border border-gray-300 text-gray-600"
               aria-label="Retour"
             >
-              <span className="material-symbols-sharp text-base" aria-hidden>
-                west
-              </span>
+              <CgArrowLeft size={20} />
             </a>
           </Link>
 
@@ -49,11 +49,11 @@ const ProjectView = ({ project }: Props) => {
           </ul>
 
           <div className="flex gap-4">
-            <Button as="a" href={project.link} target="_blank" rel="noreferrer" icon="north_east">
+            <Button href={project.link} target="_blank" rel="noreferrer" icon={CgArrowTopRight}>
               Voir le projet
             </Button>
 
-            <Button variant="secondary" as="a" href={project.repo} target="_blank" rel="noreferrer">
+            <Button variant="secondary" href={project.repo} target="_blank" rel="noreferrer">
               Github
             </Button>
           </div>

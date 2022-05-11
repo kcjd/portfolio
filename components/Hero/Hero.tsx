@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
-import { skewReveal, spring, spring2, zoomReveal } from '../../lib/animations'
+import { CgArrowDown } from 'react-icons/cg'
+import { skewReveal, spring2 } from '../../lib/animations'
 
 const Hero = () => {
   const handleClick = () => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
@@ -30,9 +31,7 @@ const Hero = () => {
           onClick={handleClick}
           aria-label="Mes projets"
         >
-          <span className="material-symbols-sharp" aria-hidden>
-            south
-          </span>
+          <CgArrowDown size={28} />
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: '20', ease: 'linear', repeat: Infinity }}
