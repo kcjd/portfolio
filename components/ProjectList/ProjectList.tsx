@@ -12,7 +12,7 @@ const ProjectList = ({ projects }: Props) => {
 
   return (
     <section className="container pt-24 pb-24 md:pb-56" id="projects">
-      <h2 className="mb-12 text-3xl font-bold underline underline-offset-4 decoration-emerald-200">Projets</h2>
+      <h2 className="mb-12 text-3xl font-bold">Projets</h2>
 
       <div className="grid md:grid-cols-2 gap-16 lg:gap-24">
         {projects.map((project) => (

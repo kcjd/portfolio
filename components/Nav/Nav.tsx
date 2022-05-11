@@ -6,12 +6,10 @@ import { skewReveal, spring2 } from '../../lib/animations'
 
 export const navVariants: Variants = {
   visible: {
-    x: 0,
-    scale: 1
+    x: 0
   },
   hidden: {
-    x: '-100%',
-    scale: 0.9
+    x: '-100%'
   }
 }
 

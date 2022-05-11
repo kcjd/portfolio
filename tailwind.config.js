@@ -8,11 +8,6 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['DM Sans', 'sans-serif']
-    },
-    extend: {
-      backgroundImage: {
-        'mesh-gradient': "url('/mesh-gradient.webp')"
-      }
     }
   },
   plugins: []

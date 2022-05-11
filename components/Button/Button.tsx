@@ -19,7 +19,7 @@ const Button = forwardRef(
       <Component
         ref={ref}
         className={clsx(
-          'inline-flex items-center h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer transition-colors',
+          'inline-flex items-center h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer',
           variant === 'primary' && 'bg-gray-900 text-white',
           variant === 'secondary' && 'border-2 border-current text-gray-900'
         )}

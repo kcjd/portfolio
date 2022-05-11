@@ -9,13 +9,15 @@ const Hero = () => {
   const handleClick = () => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
 
   return (
-    <section className="bg-blue-50">
-      <div className="container flex flex-col lg:flex-row justify-center lg:justify-between lg:items-center gap-12 lg:gap-0 min-h-screen py-48">
-        <div className="md:max-w-[75%]">
-          <p className="mb-4 text-gray-600 text-xl">Kévin Colonjard</p>
+    <section className="relative flex items-center min-h-screen py-48 bg-gradient-to-bl from-rose-50 via-blue-100 to-blue-300">
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white" />
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight lg:leading-none">
-            Développeur <span className="underline underline-offset-4 decoration-emerald-200">Frontend</span> à Lyon
+      <div className="relative container flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-60">
+        <div>
+          <p className="mb-4 text-gray-600 text-xl md:text-2xl lg:text-3xl">Kévin Colonjard</p>
+
+          <h1 className="text-5xl md:text-8xl xl:text-9xl font-bold leading-none">
+            Développeur <br /> Frontend
           </h1>
         </div>
 
@@ -31,7 +33,7 @@ const Hero = () => {
             initial="hidden"
             animate={isHovered ? 'visible' : 'hidden'}
             transition={spring}
-            className="absolute inset-0 -z-10 rounded-full bg-emerald-200"
+            className="absolute inset-0 -z-10 rounded-full bg-blue-300"
           />
           <span className="material-symbols-sharp" aria-hidden>
             south

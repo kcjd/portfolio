@@ -17,7 +17,7 @@ const ProjectView = ({ project }: Props) => {
         <div className="max-w-3xl">
           <Link href="/">
             <a
-              className="flex justify-center items-center w-8 h-8 mb-6 rounded-full border border-gray-500 text-gray-500"
+              className="flex justify-center items-center w-10 h-10 mb-6 rounded-full border-2 border-gray-200 text-gray-600"
               aria-label="Retour"
             >
               <span className="material-symbols-sharp text-base" aria-hidden>
@@ -27,13 +27,13 @@ const ProjectView = ({ project }: Props) => {
           </Link>
 
           <div className="mb-12">
-            <h1 className="text-4xl font-bold">{project.title}</h1>
-            <p className="text-xl text-gray-500">{project.subtitle}</p>
+            <h1 className="mb-1 text-4xl font-bold">{project.title}</h1>
+            <p className="text-xl text-gray-600">{project.subtitle}</p>
           </div>
 
           <p className="mb-12 text-xl leading-normal">{project.body}</p>
 
-          <h2 className="mb-4 text-xl font-bold">Technologies</h2>
+          <h2 className="mb-6 text-xl font-bold">Technologies</h2>
 
           <ul className="flex flex-wrap gap-2 mb-20">
             {project.technologies.map((tech) => (
