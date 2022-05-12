@@ -1,7 +1,10 @@
-import { Transition, Variants } from 'framer-motion'
+import { Variants } from 'framer-motion'
 
-export const spring: Transition = { type: 'spring', stiffness: 100, mass: 0.2 }
-export const spring2: Transition = { type: 'spring', stiffness: 50, mass: 0.2 }
+export const spring = {
+  type: 'spring',
+  stiffness: 100,
+  mass: 0.2
+}
 
 export const slideReveal: Variants = {
   visible: {
@@ -11,8 +14,8 @@ export const slideReveal: Variants = {
   },
   hidden: {
     opacity: 0,
-    y: 200,
-    scale: 0.9
+    y: 60,
+    scale: 0.6
   }
 }
 
@@ -25,7 +28,7 @@ export const skewReveal: Variants = {
   hidden: {
     skewY: 5,
     opacity: 0,
-    y: 200
+    y: 60
   }
 }
 

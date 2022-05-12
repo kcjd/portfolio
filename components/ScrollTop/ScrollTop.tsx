@@ -7,7 +7,7 @@ const ScrollTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setIsVisible(window.scrollY > window.innerHeight)
+    const handleScroll = () => setIsVisible(window.scrollY >= window.innerHeight)
     handleScroll()
     window.addEventListener('scroll', handleScroll)
 

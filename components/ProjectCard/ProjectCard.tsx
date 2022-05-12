@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-import { slideReveal, spring, spring2 } from '../../lib/animations'
+import { spring } from '../../lib/animations'
+import Parallax from '../Parallax'
 
 type Props = {
   project: Project
@@ -19,13 +20,7 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
 
   return (
     <article className="relative md:odd:translate-y-32">
-      <motion.div
-        variants={slideReveal}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-        transition={spring2}
-      >
+      <Parallax offset={120}>
         <Link href={`/project/${project.slug}`} passHref>
           <a
             className="block cursor-none"
@@ -54,7 +49,7 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
           <h3 className="text-2xl font-bold">{project.title}</h3>
           <p className="text-lg text-gray-600">{project.subtitle}</p>
         </div>
-      </motion.div>
+      </Parallax>
     </article>
   )
 }
