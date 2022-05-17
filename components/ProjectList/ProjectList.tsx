@@ -2,7 +2,6 @@ import { Project } from '@prisma/client'
 import ProjectCard from '../ProjectCard'
 import Cursor from '../Cursor'
 import useToggle from '../../hooks/useToggle'
-import Parallax from '../Parallax'
 
 type Props = {
   projects: Project[]
@@ -12,12 +11,8 @@ const ProjectList = ({ projects }: Props) => {
   const [isCursorVisible, toggleCursorVisible] = useToggle()
 
   return (
-    <section className="container pt-24 pb-24 md:pb-56" id="projects">
-      <Parallax offset={40}>
-        <h2 className="mb-12 text-3xl font-bold">Projets</h2>
-      </Parallax>
-
-      <div className="grid md:grid-cols-2 gap-4 lg:gap-24">
+    <section className="container py-24 md:pt-12 md:pb-56" id="projects">
+      <div className="grid md:grid-cols-2 gap-24">
         {projects.map((project) => (
           <ProjectCard key={project.id} project={project} toggleCursor={toggleCursorVisible} />
         ))}

@@ -1,28 +1,26 @@
 import { motion } from 'framer-motion'
 import Image from 'next/image'
+import Link from 'next/link'
 import { CgArrowDown } from 'react-icons/cg'
-import Parallax from '../Parallax'
+import { slideReveal, spring2, zoomReveal } from '../../lib/animations'
 
 const Hero = () => {
-  const handleClick = () => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })
-
   return (
-    <section className="relative flex items-center min-h-screen py-48 bg-gradient-to-bl from-rose-50 via-blue-100 to-blue-300">
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white" />
-
-      <div className="relative container flex flex-col lg:flex-row lg:items-end gap-12 lg:gap-60">
-        <Parallax>
-          <p className="mb-4 text-gray-600 text-xl md:text-2xl lg:text-3xl">Kévin Colonjard</p>
-
-          <h1 className="text-5xl md:text-8xl xl:text-9xl font-bold leading-none">
-            Développeur <br /> Frontend
+    <section className="flex lg:items-center pt-48">
+      <div className="container">
+        <motion.div variants={slideReveal} initial="hidden" animate="visible" transition={spring2} className="mb-12">
+          <h1 className="text-4xl md:text-6xl xl:text-7xl font-bold leading-none">
+            Kévin Colonjard, <br /> Développeur web <br /> à Lyon.
           </h1>
-        </Parallax>
+        </motion.div>
 
-        <Parallax offset={120}>
-          <button
+        <Link href="#projects" passHref>
+          <motion.a
+            variants={zoomReveal}
+            initial="hidden"
+            animate="visible"
+            transition={spring2}
             className="relative flex justify-center items-center w-32 h-32"
-            onClick={handleClick}
             aria-label="Mes projets"
           >
             <CgArrowDown size={28} />
@@ -33,8 +31,8 @@ const Hero = () => {
             >
               <Image src="/hero-badge.svg" width={1} height={1} alt="" layout="responsive" />
             </motion.div>
-          </button>
-        </Parallax>
+          </motion.a>
+        </Link>
       </div>
     </section>
   )

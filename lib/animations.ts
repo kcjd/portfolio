@@ -6,6 +6,12 @@ export const spring = {
   mass: 0.2
 }
 
+export const spring2 = {
+  type: 'spring',
+  stiffness: 50,
+  mass: 0.2
+}
+
 export const slideReveal: Variants = {
   visible: {
     opacity: 1,
@@ -14,8 +20,8 @@ export const slideReveal: Variants = {
   },
   hidden: {
     opacity: 0,
-    y: 60,
-    scale: 0.6
+    y: 120,
+    scale: 0.9
   }
 }
 
