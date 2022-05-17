@@ -19,7 +19,7 @@ const Social = () => {
   return (
     <div className="flex gap-4">
       {socialLinks.map(({ href, label, icon }) => (
-        <SocialLink key={href} href={label} label={label} icon={icon} />
+        <SocialLink key={href} href={href} label={label} icon={icon} />
       ))}
     </div>
   )
