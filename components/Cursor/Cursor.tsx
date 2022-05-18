@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
-import { CgArrowsExpandRight } from 'react-icons/cg'
+import { CgArrowTopRight } from 'react-icons/cg'
 import useMousePosition from '../../hooks/useMousePosition'
 import { spring, zoomReveal } from '../../lib/animations'
 
@@ -32,7 +32,7 @@ const Cursor = ({ isVisible }: Props) => {
           className="absolute top-0 left-0 z-50 flex justify-center items-center w-20 h-20 rounded-full bg-gray-900 text-white select-none pointer-events-none"
           style={{ x, y }}
         >
-          <CgArrowsExpandRight size={28} />
+          <CgArrowTopRight size={28} />
         </motion.div>
       )}
     </AnimatePresence>

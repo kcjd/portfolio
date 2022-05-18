@@ -33,13 +33,11 @@ const About = () => {
               développement, j’ai décidé de suivre une formation chez OpenClassrooms, que j’ai validée avec succès !
             </p>
             <p>
-              Véritable passionné de tech avec un goût pour le challenge, j’aime apporter des solutions simples et
-              efficaces, avec une bonne expérience utilisateur.
+              Spécialisé en développement JavaScript / React, j’aime apporter des solutions simples et efficaces, et
+              créer de bonnes expériences utilisateur. Je recherche un poste de développeur front-end junior en CDI, à
+              Lyon ou en remote.
             </p>
-            <p>
-              Je suis en quête d’un poste de développeur front-end à Lyon, alors si mon profil vous intéresse, n’hésitez
-              pas à me contacter !
-            </p>
+            <p>Si mon profil vous intéresse, n’hésitez pas à me contacter !</p>
           </div>
 
           <Link href="/#contact" passHref>

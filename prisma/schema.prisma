@@ -14,8 +14,9 @@ model Project {
   subtitle     String
   body         String
   technologies String[]
-  link         String
-  repo         String
+  link         String?
+  repo         String?
+  youtube      String?
   thumbnail    String
   images       String[]
   color        String

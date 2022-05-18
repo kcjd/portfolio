@@ -15,7 +15,7 @@ const Project: NextPage<Props> = ({ project, previousProject, nextProject }) => 
   return (
     <>
       <Head>
-        <title>{project.title} | Kévin Colonjard</title>
+        <title>{project.title} — Kévin Colonjard</title>
         <meta
           name="description"
           content={`${project.title} - ${project.subtitle}. Projet réalisé par Kévin Colonjard, développeur web à Lyon.`}

@@ -13,7 +13,7 @@ type Props = {
 
 const ProjectView = ({ project }: Props) => {
   return (
-    <section className="pt-60 pb-24">
+    <section className="pt-40 pb-24">
       <div className="container">
         <motion.div
           key={project.slug}
@@ -23,7 +23,7 @@ const ProjectView = ({ project }: Props) => {
           transition={spring2}
           className="max-w-3xl"
         >
-          <Link href="/#projects">
+          <Link href="/">
             <a
               className="flex justify-center items-center w-10 h-10 mb-6 rounded-full border border-gray-300 text-gray-600"
               aria-label="Retour"
@@ -48,13 +48,23 @@ const ProjectView = ({ project }: Props) => {
           </ul>
 
           <div className="flex gap-4">
-            <Button href={project.link} target="_blank" rel="noreferrer" icon={CgArrowTopRight}>
-              {project.link.includes('youtu.be') ? 'Vidéo' : 'Visiter'}
-            </Button>
+            {project.link && (
+              <Button href={project.link} target="_blank" rel="noreferrer" icon={CgArrowTopRight}>
+                Visiter
+              </Button>
+            )}
 
-            <Button variant="secondary" href={project.repo} target="_blank" rel="noreferrer">
-              Github
-            </Button>
+            {project.youtube && (
+              <Button href={project.youtube} target="_blank" rel="noreferrer" icon={CgArrowTopRight}>
+                Vidéo
+              </Button>
+            )}
+
+            {project.repo && (
+              <Button variant="secondary" href={project.repo} target="_blank" rel="noreferrer">
+                Github
+              </Button>
+            )}
           </div>
         </motion.div>
       </div>

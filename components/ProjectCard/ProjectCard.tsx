@@ -53,7 +53,7 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
           </Link>
 
           <div className="mt-8">
-            <h2 className="text-2xl font-bold">{project.title}</h2>
+            <h3 className="text-2xl font-bold">{project.title}</h3>
             <p className="text-lg text-gray-600">{project.subtitle}</p>
           </div>
         </motion.div>

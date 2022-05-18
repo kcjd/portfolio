@@ -15,7 +15,7 @@ const Home: NextPage<Props> = ({ projects }) => {
   return (
     <>
       <Head>
-        <title>Kévin Colonjard | Développeur web</title>
+        <title>Kévin Colonjard — Développeur web</title>
         <meta
           name="description"
           content="Portfolio de Kévin Colonjard, développeur web à Lyon, spécialisé en JavaScript / React."

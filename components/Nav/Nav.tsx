@@ -34,7 +34,7 @@ const Nav = () => {
         initial="hidden"
         animate={isOpen ? 'visible' : 'hidden'}
         transition={{ ...spring, when: 'beforeChildren', staggerChildren: 0.1 }}
-        className="fixed inset-0 flex md:contents flex-col justify-between py-6 px-4 bg-blue-50"
+        className="fixed inset-0 z-50 flex md:contents flex-col justify-between py-6 px-4 bg-blue-50"
         onClick={handleClick}
       >
         <button className="self-end md:hidden" onClick={() => setIsOpen(false)} aria-label="Fermer">
