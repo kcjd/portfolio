@@ -4,18 +4,18 @@ export const socialLinks = [
   {
     href: 'https://github.com/kcjd',
     label: 'GitHub',
-    icon: FaGithub
+    icon: FaGithub,
   },
   {
     href: 'https://codepen.io/kevincj',
     label: 'CodePen',
-    icon: FaCodepen
+    icon: FaCodepen,
   },
   {
     href: 'https://www.linkedin.com/in/kevincj',
     label: 'LinkedIn',
-    icon: FaLinkedin
-  }
+    icon: FaLinkedin,
+  },
 ]
 
 export default socialLinks

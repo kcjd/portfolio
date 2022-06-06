@@ -1,0 +1,15 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "importOrder": [
+    "^(next/(.*)$)|^(next$)",
+    "<THIRD_PARTY_MODULES>",
+    "^components/(.*)$",
+    "^hooks/(.*)$",
+    "^lib/(.*)$",
+    "^styles/(.*)$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}

@@ -1,4 +1,5 @@
 import { IconType } from 'react-icons'
+
 import socialLinks from './socialLinks'
 
 type Props = {
@@ -9,7 +10,13 @@ type Props = {
 
 const SocialLink = ({ href, label, icon: Icon }: Props) => {
   return (
-    <a className="w-6 h-6" href={href} target="_blank" rel="noreferrer" aria-label={label}>
+    <a
+      className="w-6 h-6"
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+    >
       <Icon size={24} />
     </a>
   )

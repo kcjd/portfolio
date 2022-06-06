@@ -1,13 +1,15 @@
-import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import { CgArrowUp } from 'react-icons/cg'
-import { slideReveal, spring } from '../../lib/animations'
+
+import { slideReveal, spring } from 'lib/animations'
 
 const ScrollTop = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => setIsVisible(window.scrollY >= window.innerHeight)
+    const handleScroll = () =>
+      setIsVisible(window.scrollY >= window.innerHeight)
     handleScroll()
     window.addEventListener('scroll', handleScroll)
 

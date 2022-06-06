@@ -1,5 +1,5 @@
-import { forwardRef, HTMLProps, PropsWithChildren } from 'react'
 import clsx from 'clsx'
+import { HTMLProps, PropsWithChildren, forwardRef } from 'react'
 import { IconType } from 'react-icons'
 
 type Props = HTMLProps<HTMLAnchorElement> & {
@@ -20,7 +20,6 @@ const Button = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
         {...props}
       >
         {children}
-
         {Icon && <Icon size={24} />}
       </a>
     )

@@ -1,9 +1,12 @@
-import { Project } from '@prisma/client'
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import ProjectNav from '../../components/ProjectNav'
-import ProjectView from '../../components/ProjectView'
-import { prisma } from '../../lib/prisma'
+
+import { Project } from '@prisma/client'
+
+import ProjectNav from 'components/ProjectNav'
+import ProjectView from 'components/ProjectView'
+
+import { prisma } from 'lib/prisma'
 
 type Props = {
   project: Project
@@ -11,7 +14,11 @@ type Props = {
   nextProject?: Project
 }
 
-const Project: NextPage<Props> = ({ project, previousProject, nextProject }) => {
+const ProjectPage: NextPage<Props> = ({
+  project,
+  previousProject,
+  nextProject,
+}) => {
   return (
     <>
       <Head>
@@ -21,9 +28,7 @@ const Project: NextPage<Props> = ({ project, previousProject, nextProject }) => 
           content={`${project.title} - ${project.subtitle}. Projet réalisé par Kévin Colonjard, développeur web à Lyon.`}
         />
       </Head>
-
       <ProjectView project={project} />
-
       <ProjectNav previousProject={previousProject} nextProject={nextProject} />
     </>
   )
@@ -33,36 +38,36 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const projects = await prisma.project.findMany({
     where: {
       published: {
-        equals: true
-      }
+        equals: true,
+      },
     },
     select: {
-      slug: true
-    }
+      slug: true,
+    },
   })
 
   return {
     paths: projects.map((project) => ({ params: { slug: project.slug } })),
-    fallback: false
+    fallback: false,
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const project = await prisma.project.findUnique({
     where: {
-      slug: params?.slug as string
-    }
+      slug: params?.slug as string,
+    },
   })
 
   const projects = await prisma.project.findMany({
     where: {
       published: {
-        equals: true
-      }
+        equals: true,
+      },
     },
     orderBy: {
-      createdAt: 'desc'
-    }
+      createdAt: 'desc',
+    },
   })
 
   const index = projects.findIndex((project) => project.slug === params?.slug)
@@ -73,22 +78,22 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       project: {
         ...project,
-        createdAt: project?.createdAt.toISOString()
+        createdAt: project?.createdAt.toISOString(),
       },
       previousProject: previous
         ? {
             ...previous,
-            createdAt: previous.createdAt.toISOString()
+            createdAt: previous.createdAt.toISOString(),
           }
         : null,
       nextProject: next
         ? {
             ...next,
-            createdAt: next.createdAt.toISOString()
+            createdAt: next.createdAt.toISOString(),
           }
-        : null
-    }
+        : null,
+    },
   }
 }
 
-export default Project
+export default ProjectPage

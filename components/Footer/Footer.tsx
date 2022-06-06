@@ -1,4 +1,4 @@
-import Social from '../Social'
+import Social from 'components/Social'
 
 const Footer = () => {
   return (
@@ -7,7 +7,6 @@ const Footer = () => {
         <span className="font-bold">Kévin Colonjard</span>
         <span className="text-gray-600"> — Portfolio 2022</span>
       </p>
-
       <Social />
     </footer>
   )

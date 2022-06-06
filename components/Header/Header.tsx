@@ -1,5 +1,6 @@
 import Link from 'next/link'
-import Nav from '../Nav'
+
+import Nav from 'components/Nav'
 
 const Header = () => {
   return (
@@ -7,7 +8,6 @@ const Header = () => {
       <Link href="/">
         <a className="font-bold text-lg">Kévin Colonjard</a>
       </Link>
-
       <Nav />
     </header>
   )

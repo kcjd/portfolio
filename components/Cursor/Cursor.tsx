@@ -1,8 +1,15 @@
+import {
+  AnimatePresence,
+  motion,
+  useMotionValue,
+  useSpring,
+} from 'framer-motion'
 import { useEffect } from 'react'
-import { AnimatePresence, motion, useMotionValue, useSpring } from 'framer-motion'
 import { CgArrowTopRight } from 'react-icons/cg'
-import useMousePosition from '../../hooks/useMousePosition'
-import { spring, zoomReveal } from '../../lib/animations'
+
+import useMousePosition from 'hooks/useMousePosition'
+
+import { spring, zoomReveal } from 'lib/animations'
 
 type Props = {
   isVisible: boolean

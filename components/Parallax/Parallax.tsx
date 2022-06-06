@@ -1,5 +1,10 @@
+import {
+  motion,
+  useSpring,
+  useTransform,
+  useViewportScroll,
+} from 'framer-motion'
 import { PropsWithChildren, useEffect, useRef, useState } from 'react'
-import { motion, useSpring, useTransform, useViewportScroll } from 'framer-motion'
 
 type Props = {
   offset?: number
@@ -20,7 +25,10 @@ const Parallax = ({ offset = 50, children }: PropsWithChildren<Props>) => {
   useEffect(() => {
     const onResize = () => {
       if (!elementRef.current) return
-      setElementTop(elementRef.current.getBoundingClientRect().top + window.scrollY || window.pageYOffset)
+      setElementTop(
+        elementRef.current.getBoundingClientRect().top + window.scrollY ||
+          window.pageYOffset
+      )
       setClientHeight(window.innerHeight)
     }
 
