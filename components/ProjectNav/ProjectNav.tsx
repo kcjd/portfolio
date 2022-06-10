@@ -42,7 +42,7 @@ const ProjectNavLink = ({
           className={`w-40 bg-${project.color}-50`}
         >
           <Image
-            src={`/projects/${project.thumbnail}`}
+            src={`/projects/${project.slug}-thumb.png`}
             width={1500}
             height={1200}
             layout="responsive"

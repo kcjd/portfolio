@@ -80,18 +80,18 @@ const ProjectView = ({ project }: Props) => {
         </motion.div>
       </div>
       <div className="flex flex-col gap-16 max-w-screen-xl mx-auto mt-24 lg:px-4">
-        {project.images.map((image) => (
+        {[...Array(3)].map((_, i) => (
           <motion.div
             variants={slideReveal}
             initial="hidden"
             whileInView="visible"
             transition={spring2}
             viewport={{ once: true }}
-            key={image}
+            key={project.slug + i}
             className="bg-gray-900"
           >
             <Image
-              src={`/projects/${image}`}
+              src={`/projects/${project.slug}-0${i + 1}.png`}
               width={1500}
               height={1200}
               layout="responsive"

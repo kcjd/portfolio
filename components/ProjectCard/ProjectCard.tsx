@@ -47,7 +47,7 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
                   transition={spring}
                 >
                   <Image
-                    src={`/projects/${project.thumbnail}`}
+                    src={`/projects/${project.slug}-thumb.png`}
                     width={1500}
                     height={1200}
                     layout="responsive"

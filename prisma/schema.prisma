@@ -17,9 +17,7 @@ model Project {
   link         String?
   repo         String?
   youtube      String?
-  thumbnail    String
-  images       String[]
   color        String
-  createdAt    DateTime @default(now())
+  createdAt    String
   published    Boolean  @default(false)
 }

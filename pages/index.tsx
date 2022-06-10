@@ -40,16 +40,13 @@ export const getStaticProps: GetStaticProps = async () => {
       },
     },
     orderBy: {
-      createdAt: 'desc',
+      id: 'desc',
     },
   })
 
   return {
     props: {
-      projects: projects.map((project) => ({
-        ...project,
-        createdAt: project.createdAt.toISOString(),
-      })),
+      projects,
     },
   }
 }

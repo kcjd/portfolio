@@ -66,32 +66,19 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     },
     orderBy: {
-      createdAt: 'desc',
+      id: 'desc',
     },
   })
 
   const index = projects.findIndex((project) => project.slug === params?.slug)
-  const previous = index > 0 ? projects[index - 1] : null
-  const next = index < projects.length - 1 ? projects[index + 1] : null
+  const previousProject = index > 0 ? projects[index - 1] : null
+  const nextProject = index < projects.length - 1 ? projects[index + 1] : null
 
   return {
     props: {
-      project: {
-        ...project,
-        createdAt: project?.createdAt.toISOString(),
-      },
-      previousProject: previous
-        ? {
-            ...previous,
-            createdAt: previous.createdAt.toISOString(),
-          }
-        : null,
-      nextProject: next
-        ? {
-            ...next,
-            createdAt: next.createdAt.toISOString(),
-          }
-        : null,
+      project,
+      previousProject,
+      nextProject,
     },
   }
 }
