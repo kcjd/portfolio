@@ -5,7 +5,7 @@ import Layout from 'components/Layout'
 
 import 'styles/globals.css'
 
-const App = ({ Component, pageProps }: AppProps) => {
+export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
@@ -17,5 +17,3 @@ const App = ({ Component, pageProps }: AppProps) => {
     </>
   )
 }
-
-export default App

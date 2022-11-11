@@ -11,11 +11,11 @@ import useMousePosition from 'hooks/useMousePosition'
 
 import { spring, zoomReveal } from 'lib/animations'
 
-type Props = {
+interface Props {
   isVisible: boolean
 }
 
-const Cursor = ({ isVisible }: Props) => {
+export default function Cursor({ isVisible }: Props) {
   const mousePosition = useMousePosition()
   const cursorX = useMotionValue(0)
   const cursorY = useMotionValue(0)
@@ -45,5 +45,3 @@ const Cursor = ({ isVisible }: Props) => {
     </AnimatePresence>
   )
 }
-
-export default Cursor

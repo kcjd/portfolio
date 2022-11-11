@@ -17,7 +17,7 @@ export const navVariants: Variants = {
   },
 }
 
-const Nav = () => {
+export default function Nav() {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleClick: MouseEventHandler = (e) => {
@@ -66,5 +66,3 @@ const Nav = () => {
     </>
   )
 }
-
-export default Nav

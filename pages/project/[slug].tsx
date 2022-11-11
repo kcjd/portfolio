@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from 'next'
+import { GetStaticPaths, GetStaticProps } from 'next'
 import Head from 'next/head'
 
 import { Project } from '@prisma/client'
@@ -6,19 +6,14 @@ import { Project } from '@prisma/client'
 import ProjectNav from 'components/ProjectNav'
 import ProjectView from 'components/ProjectView'
 
-import { prisma } from 'lib/prisma'
+import { getProject, getProjects } from 'lib/prisma'
 
-type Props = {
+interface Props {
   project: Project
-  previousProject?: Project
-  nextProject?: Project
+  projects: Project[]
 }
 
-const ProjectPage: NextPage<Props> = ({
-  project,
-  previousProject,
-  nextProject,
-}) => {
+export default function ProjectPage({ project, projects }: Props) {
   return (
     <>
       <Head>
@@ -29,58 +24,28 @@ const ProjectPage: NextPage<Props> = ({
         />
       </Head>
       <ProjectView project={project} />
-      <ProjectNav previousProject={previousProject} nextProject={nextProject} />
+      <ProjectNav projects={projects} currentProject={project} />
     </>
   )
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await prisma.project.findMany({
-    where: {
-      published: {
-        equals: true,
-      },
-    },
-    select: {
-      slug: true,
-    },
-  })
+  const projects = await getProjects()
 
   return {
-    paths: projects.map((project) => ({ params: { slug: project.slug } })),
+    paths: projects.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const project = await prisma.project.findUnique({
-    where: {
-      slug: params?.slug as string,
-    },
-  })
-
-  const projects = await prisma.project.findMany({
-    where: {
-      published: {
-        equals: true,
-      },
-    },
-    orderBy: {
-      id: 'desc',
-    },
-  })
-
-  const index = projects.findIndex((project) => project.slug === params?.slug)
-  const previousProject = index > 0 ? projects[index - 1] : null
-  const nextProject = index < projects.length - 1 ? projects[index + 1] : null
+  const project = await getProject(params?.slug as string)
+  const projects = await getProjects()
 
   return {
     props: {
       project,
-      previousProject,
-      nextProject,
+      projects,
     },
   }
 }
-
-export default ProjectPage

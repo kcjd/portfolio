@@ -5,11 +5,11 @@ import ProjectCard from 'components/ProjectCard'
 
 import useToggle from 'hooks/useToggle'
 
-type Props = {
+interface Props {
   projects: Project[]
 }
 
-const ProjectList = ({ projects }: Props) => {
+export default function ProjectList({ projects }: Props) {
   const [isCursorVisible, toggleCursorVisible] = useToggle()
 
   return (
@@ -28,5 +28,3 @@ const ProjectList = ({ projects }: Props) => {
     </section>
   )
 }
-
-export default ProjectList

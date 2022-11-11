@@ -4,7 +4,7 @@ import { CgArrowUp } from 'react-icons/cg'
 
 import { slideReveal, spring } from 'lib/animations'
 
-const ScrollTop = () => {
+export default function ScrollTop() {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -37,5 +37,3 @@ const ScrollTop = () => {
     </AnimatePresence>
   )
 }
-
-export default ScrollTop

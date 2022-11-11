@@ -2,15 +2,13 @@ import Link from 'next/link'
 
 import Nav from 'components/Nav'
 
-const Header = () => {
+export default function Header() {
   return (
     <header className="container flex justify-between items-center py-6">
-      <Link href="/">
-        <a className="font-bold text-lg">Kévin Colonjard</a>
+      <Link href="/" className="font-bold text-lg">
+        Kévin Colonjard
       </Link>
       <Nav />
     </header>
   )
 }
-
-export default Header

@@ -1,6 +1,6 @@
 import { socialLinks } from 'components/Social/socialLinks'
 
-const Contact = () => {
+export default function Contact() {
   return (
     <section className="container py-24" id="contact">
       <h2 className="mb-16 text-3xl font-bold">Contact</h2>
@@ -39,5 +39,3 @@ const Contact = () => {
     </section>
   )
 }
-
-export default Contact

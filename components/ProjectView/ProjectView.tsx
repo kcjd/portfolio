@@ -10,11 +10,11 @@ import Chip from 'components/Chip'
 
 import { slideReveal, spring2 } from 'lib/animations'
 
-type Props = {
+interface Props {
   project: Project
 }
 
-const ProjectView = ({ project }: Props) => {
+export default function ProjectView({ project }: Props) {
   return (
     <section className="pt-40 pb-24">
       <div className="container">
@@ -26,13 +26,12 @@ const ProjectView = ({ project }: Props) => {
           transition={spring2}
           className="max-w-3xl"
         >
-          <Link href="/">
-            <a
-              className="flex justify-center items-center w-10 h-10 mb-6 rounded-full border border-gray-300 text-gray-600"
-              aria-label="Retour"
-            >
-              <CgArrowLeft size={20} />
-            </a>
+          <Link
+            href="/"
+            className="flex justify-center items-center w-10 h-10 mb-6 rounded-full border border-gray-300 text-gray-600"
+            aria-label="Retour"
+          >
+            <CgArrowLeft size={20} />
           </Link>
           <div className="mb-12">
             <h1 className="mb-1 text-4xl font-bold">{project.title}</h1>
@@ -47,32 +46,17 @@ const ProjectView = ({ project }: Props) => {
           </ul>
           <div className="flex gap-4">
             {project.link && (
-              <Button
-                href={project.link}
-                target="_blank"
-                rel="noreferrer"
-                icon={CgArrowTopRight}
-              >
+              <Button href={project.link} icon={CgArrowTopRight}>
                 Visiter
               </Button>
             )}
             {project.youtube && (
-              <Button
-                href={project.youtube}
-                target="_blank"
-                rel="noreferrer"
-                icon={CgArrowTopRight}
-              >
+              <Button href={project.youtube} icon={CgArrowTopRight}>
                 Vidéo
               </Button>
             )}
             {project.repo && (
-              <Button
-                variant="secondary"
-                href={project.repo}
-                target="_blank"
-                rel="noreferrer"
-              >
+              <Button variant="secondary" href={project.repo}>
                 Github
               </Button>
             )}
@@ -94,7 +78,6 @@ const ProjectView = ({ project }: Props) => {
               src={`/projects/${project.slug}-0${i + 1}.png`}
               width={1500}
               height={1200}
-              layout="responsive"
               alt=""
             />
           </motion.div>
@@ -103,5 +86,3 @@ const ProjectView = ({ project }: Props) => {
     </section>
   )
 }
-
-export default ProjectView

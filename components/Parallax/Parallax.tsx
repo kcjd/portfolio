@@ -1,20 +1,16 @@
-import {
-  motion,
-  useSpring,
-  useTransform,
-  useViewportScroll,
-} from 'framer-motion'
-import { PropsWithChildren, useEffect, useRef, useState } from 'react'
+import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
 
-type Props = {
+interface Props {
   offset?: number
+  children: React.ReactNode
 }
 
-const Parallax = ({ offset = 50, children }: PropsWithChildren<Props>) => {
+export default function Parallax({ offset = 50, children }: Props) {
   const [elementTop, setElementTop] = useState(0)
   const [clientHeight, setClientHeight] = useState(0)
   const elementRef = useRef<HTMLDivElement | null>(null)
-  const { scrollY } = useViewportScroll()
+  const { scrollY } = useScroll()
 
   const initial = elementTop - clientHeight
   const final = elementTop + offset
@@ -44,5 +40,3 @@ const Parallax = ({ offset = 50, children }: PropsWithChildren<Props>) => {
     </motion.div>
   )
 }
-
-export default Parallax

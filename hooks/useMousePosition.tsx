@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-const useMousePosition = () => {
+export default function useMousePosition() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
 
   const handleMouseMove = useCallback(
@@ -16,5 +16,3 @@ const useMousePosition = () => {
 
   return mousePosition
 }
-
-export default useMousePosition

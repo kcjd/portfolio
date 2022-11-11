@@ -1,31 +1,31 @@
+import Link, { LinkProps } from 'next/link'
+
 import clsx from 'clsx'
-import { HTMLProps, PropsWithChildren, forwardRef } from 'react'
 import { IconType } from 'react-icons'
 
-type Props = HTMLProps<HTMLAnchorElement> & {
+interface Props extends LinkProps {
   variant?: 'primary' | 'secondary'
   icon?: IconType
+  children: React.ReactNode
 }
 
-const Button = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
-  ({ variant = 'primary', icon: Icon, children, ...props }, ref?: any) => {
-    return (
-      <a
-        ref={ref}
-        className={clsx(
-          'inline-flex items-center gap-2 h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer',
-          variant === 'primary' && 'bg-gray-900 text-white',
-          variant === 'secondary' && 'border border-gray-900 text-gray-900'
-        )}
-        {...props}
-      >
-        {children}
-        {Icon && <Icon size={24} />}
-      </a>
-    )
-  }
-)
-
-Button.displayName = 'Button'
-
-export default Button
+export default function Button({
+  variant = 'primary',
+  icon: Icon,
+  children,
+  ...props
+}: Props) {
+  return (
+    <Link
+      className={clsx(
+        'inline-flex items-center gap-2 h-16 px-8 rounded-md font-bold uppercase tracking-wide cursor-pointer',
+        variant === 'primary' && 'bg-gray-900 text-white',
+        variant === 'secondary' && 'border border-gray-900 text-gray-900'
+      )}
+      {...props}
+    >
+      {children}
+      {Icon && <Icon size={24} />}
+    </Link>
+  )
+}

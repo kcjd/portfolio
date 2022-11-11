@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 
 import { motion } from 'framer-motion'
 
@@ -9,7 +8,7 @@ import Parallax from 'components/Parallax'
 
 import { slideReveal, spring2 } from 'lib/animations'
 
-const About = () => {
+export default function About() {
   return (
     <section className="container py-24" id="about">
       <h2 className="mb-24 text-3xl font-bold">À Propos</h2>
@@ -28,7 +27,6 @@ const About = () => {
               src="/me.webp"
               width={1440}
               height={1440}
-              layout="responsive"
               alt=""
             />
           </motion.div>
@@ -49,9 +47,7 @@ const About = () => {
             </p>
             <p>Si mon profil vous intéresse, n’hésitez pas à me contacter !</p>
           </div>
-          <Link href="/#contact" passHref>
-            <Button>Me contacter</Button>
-          </Link>
+          <Button href="/#contact">Me contacter</Button>
         </div>
       </div>
       <h2 className="mb-6 text-xl font-bold">Mes compétences</h2>
@@ -75,5 +71,3 @@ const About = () => {
     </section>
   )
 }
-
-export default About

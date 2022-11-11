@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from 'next'
+import { GetStaticProps } from 'next'
 import Head from 'next/head'
 
 import { Project } from '@prisma/client'
@@ -8,13 +8,13 @@ import Contact from 'components/Contact'
 import Hero from 'components/Hero'
 import ProjectList from 'components/ProjectList'
 
-import { prisma } from 'lib/prisma'
+import { getProjects } from 'lib/prisma'
 
-type Props = {
+interface Props {
   projects: Project[]
 }
 
-const HomePage: NextPage<Props> = ({ projects }) => {
+export default function HomePage({ projects }: Props) {
   return (
     <>
       <Head>
@@ -33,16 +33,7 @@ const HomePage: NextPage<Props> = ({ projects }) => {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const projects = await prisma.project.findMany({
-    where: {
-      published: {
-        equals: true,
-      },
-    },
-    orderBy: {
-      id: 'desc',
-    },
-  })
+  const projects = await getProjects()
 
   return {
     props: {
@@ -50,5 +41,3 @@ export const getStaticProps: GetStaticProps = async () => {
     },
   }
 }
-
-export default HomePage

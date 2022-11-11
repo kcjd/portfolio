@@ -1,6 +1,6 @@
 import Social from 'components/Social'
 
-const Footer = () => {
+export default function Footer() {
   return (
     <footer className="container flex flex-col md:flex-row justify-between items-center gap-4 mt-20 py-20 border-t">
       <p className="text-lg">
@@ -11,5 +11,3 @@ const Footer = () => {
     </footer>
   )
 }
-
-export default Footer

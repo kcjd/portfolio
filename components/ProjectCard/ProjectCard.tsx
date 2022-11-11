@@ -14,7 +14,7 @@ type Props = {
   toggleCursor: () => void
 }
 
-const ProjectCard = ({ project, toggleCursor }: Props) => {
+export default function ProjectCard({ project, toggleCursor }: Props) {
   const [isHovered, setIsHovered] = useState(false)
 
   useEffect(() => {
@@ -31,31 +31,29 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
           transition={spring2}
           viewport={{ once: true }}
         >
-          <Link href={`/project/${project.slug}`} passHref>
-            <a
-              className="block cursor-none"
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
+          <Link
+            href={`/project/${project.slug}`}
+            className="block cursor-none"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+          >
+            <motion.div
+              animate={isHovered ? { scale: 0.95 } : ''}
+              transition={spring}
+              className={`block bg-${project.color}-50 overflow-hidden`}
             >
               <motion.div
-                animate={isHovered ? { scale: 0.95 } : ''}
+                animate={isHovered ? { scale: 1.1 } : ''}
                 transition={spring}
-                className={`block bg-${project.color}-50 overflow-hidden`}
               >
-                <motion.div
-                  animate={isHovered ? { scale: 1.1 } : ''}
-                  transition={spring}
-                >
-                  <Image
-                    src={`/projects/${project.slug}-thumb.png`}
-                    width={1500}
-                    height={1200}
-                    layout="responsive"
-                    alt={project.title}
-                  />
-                </motion.div>
+                <Image
+                  src={`/projects/${project.slug}-thumb.png`}
+                  width={1500}
+                  height={1200}
+                  alt={project.title}
+                />
               </motion.div>
-            </a>
+            </motion.div>
           </Link>
           <div className="mt-8">
             <h3 className="text-2xl font-bold">{project.title}</h3>
@@ -66,5 +64,3 @@ const ProjectCard = ({ project, toggleCursor }: Props) => {
     </article>
   )
 }
-
-export default ProjectCard
