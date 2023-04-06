@@ -1,4 +1,5 @@
-import { DM_Sans } from '@next/font/google'
+import { DM_Sans } from 'next/font/google'
+
 import clsx from 'clsx'
 
 import Footer from 'components/Footer'
@@ -16,7 +17,12 @@ const fontStyle = DM_Sans({
 
 export default function Layout({ children }: Props) {
   return (
-    <div className={clsx(fontStyle.className, 'app')}>
+    <div
+      className={clsx(
+        fontStyle.className,
+        'grid min-h-screen grid-rows-[auto_1fr_auto]'
+      )}
+    >
       <Header />
       <main>{children}</main>
       <Footer />

@@ -11,11 +11,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.app {
-  @apply grid min-h-screen;
-  grid-template-rows: auto 1fr auto;
-}
-
 .container {
   @apply max-w-screen-xl mx-auto px-4;
 }
