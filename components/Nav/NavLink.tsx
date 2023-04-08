@@ -1,12 +1,9 @@
-import Link from 'next/link'
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { skewReveal, spring } from "lib/animations";
 
-import { motion } from 'framer-motion'
-
-import { skewReveal, spring } from 'lib/animations'
-
-interface Props {
-  href: string
-  children: React.ReactNode
+interface Props extends React.PropsWithChildren {
+  href: string;
 }
 
 export default function NavLink({ href, children }: Props) {
@@ -23,5 +20,5 @@ export default function NavLink({ href, children }: Props) {
         {children}
       </Link>
     </motion.div>
-  )
+  );
 }

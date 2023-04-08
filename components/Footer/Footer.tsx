@@ -1,4 +1,4 @@
-import Social from 'components/Social'
+import Social from "components/Social";
 
 export default function Footer() {
   return (
@@ -9,5 +9,5 @@ export default function Footer() {
       </p>
       <Social />
     </footer>
-  )
+  );
 }

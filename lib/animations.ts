@@ -1,16 +1,16 @@
-import { Variants } from 'framer-motion'
+import { Variants } from "framer-motion";
 
 export const spring = {
-  type: 'spring',
+  type: "spring",
   stiffness: 100,
   mass: 0.2,
-}
+};
 
 export const spring2 = {
-  type: 'spring',
+  type: "spring",
   stiffness: 50,
   mass: 0.2,
-}
+};
 
 export const slideReveal: Variants = {
   visible: {
@@ -23,7 +23,7 @@ export const slideReveal: Variants = {
     y: 120,
     scale: 0.9,
   },
-}
+};
 
 export const skewReveal: Variants = {
   visible: {
@@ -36,7 +36,7 @@ export const skewReveal: Variants = {
     opacity: 0,
     y: 60,
   },
-}
+};
 
 export const zoomReveal: Variants = {
   visible: {
@@ -47,4 +47,4 @@ export const zoomReveal: Variants = {
     opacity: 0,
     scale: 0,
   },
-}
+};

@@ -1,17 +1,14 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { Project } from '@prisma/client'
-import { motion } from 'framer-motion'
-import { CgArrowLeft, CgArrowTopRight } from 'react-icons/cg'
-
-import Button from 'components/Button'
-import Chip from 'components/Chip'
-
-import { slideReveal, spring2 } from 'lib/animations'
+import Image from "next/image";
+import Link from "next/link";
+import { Project } from "@prisma/client";
+import { motion } from "framer-motion";
+import { CgArrowLeft, CgArrowTopRight } from "react-icons/cg";
+import Button from "components/Button";
+import Chip from "components/Chip";
+import { slideReveal, spring2 } from "lib/animations";
 
 interface Props {
-  project: Project
+  project: Project;
 }
 
 export default function ProjectView({ project }: Props) {
@@ -84,5 +81,5 @@ export default function ProjectView({ project }: Props) {
         ))}
       </div>
     </section>
-  )
+  );
 }

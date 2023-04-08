@@ -1,30 +1,27 @@
-import { Variants, motion } from 'framer-motion'
-import { MouseEventHandler, useState } from 'react'
-import { CgClose, CgMenu } from 'react-icons/cg'
-
-import Social from 'components/Social'
-
-import { skewReveal, spring } from 'lib/animations'
-
-import NavLink from './NavLink'
+import { Variants, motion } from "framer-motion";
+import { MouseEventHandler, useState } from "react";
+import { CgClose, CgMenu } from "react-icons/cg";
+import Social from "components/Social";
+import { skewReveal, spring } from "lib/animations";
+import NavLink from "./NavLink";
 
 export const navVariants: Variants = {
   visible: {
     x: 0,
   },
   hidden: {
-    x: '-100%',
+    x: "-100%",
   },
-}
+};
 
 export default function Nav() {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleClick: MouseEventHandler = (e) => {
-    if (e.target instanceof Element && e.target.closest('a')) {
-      setIsOpen(false)
+    if (e.target instanceof Element && e.target.closest("a")) {
+      setIsOpen(false);
     }
-  }
+  };
 
   return (
     <>
@@ -38,8 +35,12 @@ export default function Nav() {
       <motion.div
         variants={navVariants}
         initial="hidden"
-        animate={isOpen ? 'visible' : 'hidden'}
-        transition={{ ...spring, when: 'beforeChildren', staggerChildren: 0.1 }}
+        animate={isOpen ? "visible" : "hidden"}
+        transition={{
+          ...spring,
+          when: "beforeChildren",
+          staggerChildren: 0.1,
+        }}
         className="fixed inset-0 z-50 flex md:contents flex-col justify-between py-6 px-4 bg-blue-50"
         onClick={handleClick}
       >
@@ -64,5 +65,5 @@ export default function Nav() {
         </motion.div>
       </motion.div>
     </>
-  )
+  );
 }

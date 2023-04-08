@@ -1,16 +1,14 @@
-import { Project } from '@prisma/client'
-
-import Cursor from 'components/Cursor'
-import ProjectCard from 'components/ProjectCard'
-
-import useToggle from 'hooks/useToggle'
+import { Project } from "@prisma/client";
+import Cursor from "components/Cursor";
+import ProjectCard from "components/ProjectCard";
+import useToggle from "hooks/useToggle";
 
 interface Props {
-  projects: Project[]
+  projects: Project[];
 }
 
 export default function ProjectList({ projects }: Props) {
-  const [isCursorVisible, toggleCursorVisible] = useToggle()
+  const [isCursorVisible, toggleCursorVisible] = useToggle();
 
   return (
     <section className="container py-24 md:pt-12 md:pb-56" id="projects">
@@ -26,5 +24,5 @@ export default function ProjectList({ projects }: Props) {
       </div>
       <Cursor isVisible={isCursorVisible} />
     </section>
-  )
+  );
 }

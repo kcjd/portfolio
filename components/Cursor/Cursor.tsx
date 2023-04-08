@@ -3,29 +3,27 @@ import {
   motion,
   useMotionValue,
   useSpring,
-} from 'framer-motion'
-import { useEffect } from 'react'
-import { CgArrowTopRight } from 'react-icons/cg'
-
-import useMousePosition from 'hooks/useMousePosition'
-
-import { spring, zoomReveal } from 'lib/animations'
+} from "framer-motion";
+import { useEffect } from "react";
+import { CgArrowTopRight } from "react-icons/cg";
+import useMousePosition from "hooks/useMousePosition";
+import { spring, zoomReveal } from "lib/animations";
 
 interface Props {
-  isVisible: boolean
+  isVisible: boolean;
 }
 
 export default function Cursor({ isVisible }: Props) {
-  const mousePosition = useMousePosition()
-  const cursorX = useMotionValue(0)
-  const cursorY = useMotionValue(0)
-  const x = useSpring(cursorX, spring)
-  const y = useSpring(cursorY, spring)
+  const mousePosition = useMousePosition();
+  const cursorX = useMotionValue(0);
+  const cursorY = useMotionValue(0);
+  const x = useSpring(cursorX, spring);
+  const y = useSpring(cursorY, spring);
 
   useEffect(() => {
-    cursorX.set(mousePosition.x - 40)
-    cursorY.set(mousePosition.y - 40)
-  }, [mousePosition])
+    cursorX.set(mousePosition.x - 40);
+    cursorY.set(mousePosition.y - 40);
+  }, [mousePosition]);
 
   return (
     <AnimatePresence>
@@ -43,5 +41,5 @@ export default function Cursor({ isVisible }: Props) {
         </motion.div>
       )}
     </AnimatePresence>
-  )
+  );
 }

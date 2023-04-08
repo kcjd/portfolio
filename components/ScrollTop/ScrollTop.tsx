@@ -1,22 +1,21 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-import { CgArrowUp } from 'react-icons/cg'
-
-import { slideReveal, spring } from 'lib/animations'
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { CgArrowUp } from "react-icons/cg";
+import { slideReveal, spring } from "lib/animations";
 
 export default function ScrollTop() {
-  const [isVisible, setIsVisible] = useState(false)
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () =>
-      setIsVisible(window.scrollY >= window.innerHeight)
-    handleScroll()
-    window.addEventListener('scroll', handleScroll)
+      setIsVisible(window.scrollY >= window.innerHeight);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-  const handleClick = () => window.scrollTo({ top: 0, behavior: 'smooth' })
+  const handleClick = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <AnimatePresence>
@@ -35,5 +34,5 @@ export default function ScrollTop() {
         </motion.button>
       )}
     </AnimatePresence>
-  )
+  );
 }

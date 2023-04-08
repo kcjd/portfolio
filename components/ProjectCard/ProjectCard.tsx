@@ -1,25 +1,22 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { Project } from '@prisma/client'
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
-
-import Parallax from 'components/Parallax'
-
-import { slideReveal, spring, spring2 } from 'lib/animations'
+import Image from "next/image";
+import Link from "next/link";
+import { Project } from "@prisma/client";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import Parallax from "components/Parallax";
+import { slideReveal, spring, spring2 } from "lib/animations";
 
 type Props = {
-  project: Project
-  toggleCursor: () => void
-}
+  project: Project;
+  toggleCursor: () => void;
+};
 
 export default function ProjectCard({ project, toggleCursor }: Props) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    toggleCursor()
-  }, [isHovered])
+    toggleCursor();
+  }, [isHovered]);
 
   return (
     <article className="relative md:odd:translate-y-32">
@@ -38,12 +35,12 @@ export default function ProjectCard({ project, toggleCursor }: Props) {
             onMouseLeave={() => setIsHovered(false)}
           >
             <motion.div
-              animate={isHovered ? { scale: 0.95 } : ''}
+              animate={isHovered ? { scale: 0.95 } : ""}
               transition={spring}
               className={`block bg-${project.color}-50 overflow-hidden`}
             >
               <motion.div
-                animate={isHovered ? { scale: 1.1 } : ''}
+                animate={isHovered ? { scale: 1.1 } : ""}
                 transition={spring}
               >
                 <Image
@@ -62,5 +59,5 @@ export default function ProjectCard({ project, toggleCursor }: Props) {
         </motion.div>
       </Parallax>
     </article>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import SocialLink from './SocialLink'
-import socialLinks from './socialLinks'
+import SocialLink from "./SocialLink";
+import socialLinks from "./socialLinks";
 
 export default function Social() {
   return (
@@ -8,5 +8,5 @@ export default function Social() {
         <SocialLink key={href} href={href} label={label} icon={icon} />
       ))}
     </div>
-  )
+  );
 }

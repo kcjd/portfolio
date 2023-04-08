@@ -1,6 +1,4 @@
 {
-  "semi": false,
-  "singleQuote": true,
   "importOrder": [
     "^(next/(.*)$)|^(next$)",
     "<THIRD_PARTY_MODULES>",
@@ -10,6 +8,5 @@
     "^styles/(.*)$",
     "^[./]"
   ],
-  "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

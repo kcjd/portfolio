@@ -1,16 +1,13 @@
-import { GetStaticPaths, GetStaticProps } from 'next'
-import Head from 'next/head'
-
-import { Project } from '@prisma/client'
-
-import ProjectNav from 'components/ProjectNav'
-import ProjectView from 'components/ProjectView'
-
-import { getProject, getProjects } from 'lib/prisma'
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
+import { Project } from "@prisma/client";
+import ProjectNav from "components/ProjectNav";
+import ProjectView from "components/ProjectView";
+import { getProject, getProjects } from "lib/prisma";
 
 interface Props {
-  project: Project
-  projects: Project[]
+  project: Project;
+  projects: Project[];
 }
 
 export default function ProjectPage({ project, projects }: Props) {
@@ -26,26 +23,26 @@ export default function ProjectPage({ project, projects }: Props) {
       <ProjectView project={project} />
       <ProjectNav projects={projects} currentProject={project} />
     </>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const projects = await getProjects()
+  const projects = await getProjects();
 
   return {
     paths: projects.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const project = await getProject(params?.slug as string)
-  const projects = await getProjects()
+  const project = await getProject(params?.slug as string);
+  const projects = await getProjects();
 
   return {
     props: {
       project,
       projects,
     },
-  }
-}
+  };
+};

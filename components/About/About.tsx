@@ -1,12 +1,9 @@
-import Image from 'next/image'
-
-import { motion } from 'framer-motion'
-
-import Button from 'components/Button'
-import Chip from 'components/Chip'
-import Parallax from 'components/Parallax'
-
-import { slideReveal, spring2 } from 'lib/animations'
+import Image from "next/image";
+import { motion } from "framer-motion";
+import Button from "components/Button";
+import Chip from "components/Chip";
+import Parallax from "components/Parallax";
+import { slideReveal, spring2 } from "lib/animations";
 
 export default function About() {
   return (
@@ -69,5 +66,5 @@ export default function About() {
         <Chip>Figma</Chip>
       </ul>
     </section>
-  )
+  );
 }

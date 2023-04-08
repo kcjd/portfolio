@@ -1,4 +1,4 @@
-import { socialLinks } from 'components/Social/socialLinks'
+import { socialLinks } from "components/Social/socialLinks";
 
 export default function Contact() {
   return (
@@ -37,5 +37,5 @@ export default function Contact() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,13 +1,11 @@
-import Image from 'next/image'
-import Link from 'next/link'
-
-import { motion } from 'framer-motion'
-import { CgArrowDown } from 'react-icons/cg'
-
-import { slideReveal, spring2, zoomReveal } from 'lib/animations'
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { CgArrowDown } from "react-icons/cg";
+import { slideReveal, spring2, zoomReveal } from "lib/animations";
 
 export default function Hero() {
-  const MotionLink = motion(Link)
+  const MotionLink = motion(Link);
 
   return (
     <section className="container pt-28">
@@ -34,12 +32,16 @@ export default function Hero() {
         <CgArrowDown size={28} />
         <motion.div
           animate={{ rotate: 360 }}
-          transition={{ duration: '20', ease: 'linear', repeat: Infinity }}
+          transition={{
+            duration: "20",
+            ease: "linear",
+            repeat: Infinity,
+          }}
           className="absolute inset-2"
         >
           <Image src="/hero-badge.svg" width={500} height={500} alt="" />
         </motion.div>
       </MotionLink>
     </section>
-  )
+  );
 }

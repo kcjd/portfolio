@@ -1,9 +1,9 @@
-import { IconType } from 'react-icons'
+import { IconType } from "react-icons";
 
 interface Props {
-  href: string
-  label: string
-  icon: IconType
+  href: string;
+  label: string;
+  icon: IconType;
 }
 
 export default function SocialLink({ href, label, icon: Icon }: Props) {
@@ -17,5 +17,5 @@ export default function SocialLink({ href, label, icon: Icon }: Props) {
     >
       <Icon size={24} />
     </a>
-  )
+  );
 }
