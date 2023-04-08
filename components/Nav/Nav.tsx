@@ -1,9 +1,9 @@
 import { Variants, motion } from "framer-motion";
 import { MouseEventHandler, useState } from "react";
 import { CgClose, CgMenu } from "react-icons/cg";
+import NavLink from "components/Nav/NavLink";
 import Social from "components/Social";
 import { skewReveal, spring } from "lib/animations";
-import NavLink from "./NavLink";
 
 export const navVariants: Variants = {
   visible: {

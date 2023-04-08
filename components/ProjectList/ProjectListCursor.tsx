@@ -13,7 +13,7 @@ interface Props {
   isVisible: boolean;
 }
 
-export default function Cursor({ isVisible }: Props) {
+export default function ProjectListCursor({ isVisible }: Props) {
   const mousePosition = useMousePosition();
   const cursorX = useMotionValue(0);
   const cursorY = useMotionValue(0);

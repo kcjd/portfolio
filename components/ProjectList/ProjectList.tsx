@@ -1,6 +1,8 @@
+"use client";
+
 import { Project } from "@prisma/client";
-import Cursor from "components/Cursor";
 import ProjectCard from "components/ProjectCard";
+import ProjectListCursor from "components/ProjectList/ProjectListCursor";
 import useToggle from "hooks/useToggle";
 
 interface Props {
@@ -22,7 +24,7 @@ export default function ProjectList({ projects }: Props) {
           />
         ))}
       </div>
-      <Cursor isVisible={isCursorVisible} />
+      <ProjectListCursor isVisible={isCursorVisible} />
     </section>
   );
 }

@@ -1,12 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { CgArrowDown } from "react-icons/cg";
 import { slideReveal, spring2, zoomReveal } from "lib/animations";
 
 export default function Hero() {
-  const MotionLink = motion(Link);
-
   return (
     <section className="container pt-28">
       <motion.div
@@ -20,7 +19,7 @@ export default function Hero() {
           Kévin Colonjard, <br /> Développeur web <br /> à Lyon.
         </h1>
       </motion.div>
-      <MotionLink
+      <motion.a
         href="#projects"
         variants={zoomReveal}
         initial="hidden"
@@ -41,7 +40,7 @@ export default function Hero() {
         >
           <Image src="/hero-badge.svg" width={500} height={500} alt="" />
         </motion.div>
-      </MotionLink>
+      </motion.a>
     </section>
   );
 }

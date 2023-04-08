@@ -1,5 +1,5 @@
-import SocialLink from "./SocialLink";
-import socialLinks from "./socialLinks";
+import SocialLink from "components/Social/SocialLink";
+import socialLinks from "components/Social/socialLinks";
 
 export default function Social() {
   return (

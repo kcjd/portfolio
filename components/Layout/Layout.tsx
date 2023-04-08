@@ -1,3 +1,5 @@
+"use client";
+
 import { DM_Sans } from "next/font/google";
 import clsx from "clsx";
 import Footer from "components/Footer";

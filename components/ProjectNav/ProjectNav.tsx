@@ -1,5 +1,5 @@
 import { Project } from "@prisma/client";
-import ProjectNavLink from "./ProjectNavLink";
+import ProjectNavLink from "components/ProjectNav/ProjectNavLink";
 
 interface Props {
   projects: Project[];
